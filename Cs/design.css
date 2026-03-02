@@ -1,0 +1,17 @@
+header {
+    margin: auto ;
+    color: aliceblue;
+}
+
+body {
+    background-color: black;
+}
+
+.Borders Middle {
+    background-color: aliceblue;
+}
+
+a {
+    text-decoration: none;
+    color: red;
+}
