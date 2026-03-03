@@ -1,14 +1,38 @@
 header {
     margin: auto ;
     color: aliceblue;
+    text-align: center;
 }
 
 body {
     background-color: black;
 }
 
-.Borders Middle {
-    background-color: aliceblue;
+.Borders {
+    background-color: gray;
+}
+
+.Outer {
+    text-align: center;
+}
+
+.Middle {
+    color: black;
+    background-color: ghostwhite;
+    height: calc(100vh - 75px);
+    width: calc(100vw - 75px);
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.Inner {
+    text-align: center;
+} 
+
+canvas {
+    border: 1px solid black;
 }
 
 a {
