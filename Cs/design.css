@@ -2,26 +2,35 @@ header {
     margin: auto ;
     color: aliceblue;
     text-align: center;
+    font-style: italic;
 }
 
 body {
     background-color: black;
+    background: radial-gradient(black,gray,black,gray,black);
 }
 
 .Borders {
-    background-color: gray;
+    width: 5vw;
+    background-color: black;
+    width: calc(100vw - 100px);
+    border-radius: 15px;
+    margin: auto;
+    border: solid 2vh;
 }
 
 .Outer {
     text-align: center;
+    width: 95vw;
 }
 
 .Middle {
     color: black;
     background-color: ghostwhite;
     height: calc(100vh - 75px);
-    width: calc(100vw - 75px);
+    width: calc(100vw - 175px);
     display: grid;
+    border-radius: 15px;
     justify-content: center;
     align-items: center;
     margin: auto;
@@ -33,9 +42,20 @@ body {
 
 canvas {
     border: 1px solid black;
+    border-radius: 15px;
+    height: calc(100vh - 100px);
+    width: calc(100vw - 200px);
 }
 
 a {
     text-decoration: none;
+    font-style: italic;
     color: red;
+}
+
+a:hover {
+    background-color: white;
+    border: 1px solid black;
+    text-decoration: underline;
+    border-radius: 5px;
 }
