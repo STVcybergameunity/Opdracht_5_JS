@@ -58,11 +58,20 @@ body {
     font-size: clamp(1.8rem, 4vw, 5rem);
 }
 
-canvas {
-    border: 5px solid black;
+.player {
     width: 40dvw;
+    max-width: 35rem;
     height: 40dvw;
+    max-height: 35rem;
     border-radius: 15px;
+}
+
+.backdrop {
+    width: 60dvw;
+    height: 40dvw;
+    max-height: 35rem;
+    border-radius: 15px;
+    border: solid green 5px;
 }
 
 a {

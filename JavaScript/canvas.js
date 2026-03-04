@@ -1,10 +1,10 @@
-let playerState = 'dizzy';
+let playerState = 'idle';
 const dropdown = document.getElementById('animations');
 dropdown.addEventListener('change', function(e){
     playerState = e.target.value;
 })
 
-const canvas = document.getElementById('mainGame');
+const canvas = document.getElementById('player');
 const ctx = canvas.getContext('2d');
 const CANVAS_WIDTH = canvas.width = 600;
 const CANVAS_HEIGHT = canvas.height = 600;
@@ -70,6 +70,7 @@ animationStates.forEach((state, index) => {
         let positionY = index * spriteHeight;
         frames.loc.push({x: positionX, y: positionY});
     }
+    console.log(index)
     spriteAnimations[state.name] = frames;
 });
 console.log(spriteAnimations);
