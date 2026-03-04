@@ -12,14 +12,30 @@
         TopDownShooter
     </header>
 
-    <div class="Borders" id="fullscreen_button">
+    <div class="Borders">
         <div class="Outer"></div>
-        <div class="Middle"><canvas id="mainGame"></canvas><button>fullscreen_button</button></div>
-        <div class="Inner"></div>
+        <div class="Middle"><canvas id="mainGame"></canvas></div>
+        <div class="animate">
+            <label for="animations"></label>
+            <select id="animations" name="animations">
+                <option value="idle">Idle</option>
+                <option value="jump">Jump</option>
+                <option value="fall">Fall</option>
+                <option value="run">Run</option>
+                <option value="dizzy">Dizzy</option>
+                <option value="sit">Sit</option>
+                <option value="roll">Roll</option>
+                <option value="bite">Bite</option>
+                <option value="ko">KO</option>
+                <option value="getHit">Get hit</option>
+            </select>
+        </div>
+        <div class="Inner">
+            
+        </div>
     </div>
 
     <script src="JavaScript/canvas.js"></script>
-    <script src="JavaScript/fullscreen.js"></script>
 
     <footer>
         <a href="https://github.com/STVcybergameunity?tab=repositories" target="_blank">My github</a>
