@@ -16,6 +16,7 @@ body {
     width: calc(100vw - 100px);
     border-radius: 15px;
     margin: auto;
+    border: solid 2dvh;
     border: solid 2vh;
 }
 
