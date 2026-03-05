@@ -1,18 +1,31 @@
 header {
     margin: auto ;
-    color: aliceblue;
     text-align: center;
     font-style: italic;
-    font-size: clamp(1.8rem, 4vw, 5rem);
+    font-size: clamp(1rem, 3vw, 1.4rem);
     background: linear-gradient(90deg, darkred, red);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     text-shadow: 20px;
+    width: max-content;
+}
+
+h1 {
+    position: relative;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    height: .15em;
+    width: 100%;
+    background: linear-gradient(90deg,red, darkred);
+    left: 0;
+    bottom: 0;
 }
 
 body {
-    background-color: black;
     background: radial-gradient(black,gray,black,gray,black);
     overflow: hidden;
 }
@@ -46,16 +59,16 @@ body {
 }
 
 .animate {
-    margin-top: 5%;
     position: absolute;
     z-index: 10;
-    top: 50px;
+    top: 0;
     left: 50%;
     transform: translatex(-50%);
+    margin-top: 8%;
 } 
 
 .animate, select, option {
-    font-size: clamp(1.8rem, 4vw, 5rem);
+    font-size: clamp(1.8rem, 4vw, 3rem);
 }
 
 .player {
@@ -88,6 +101,10 @@ a:hover {
     border-radius: 5px;
 }
 
+footer {
+    text-align: center;
+}
+
 @media screen and (width < 800px) {
     canvas {
         width: 300px;
@@ -95,10 +112,20 @@ a:hover {
     }
 }
 
-@media screen and (height < 800px) {
+@media screen and (height < 1000px) {
     canvas {
         width: 300px;
         height: 300px;
+    }
+    .animate {
+        margin-top: 30%;
+    }
+}
+
+@media screen and (height < 600px) {
+    .animate{
+        margin-top: 15%;
+        
     }
 }
     
