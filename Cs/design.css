@@ -1,3 +1,5 @@
+/* head and text */
+
 header {
     margin: auto ;
     text-align: center;
@@ -25,6 +27,8 @@ h1::after {
     bottom: 0;
 }
 
+
+/* visials content */
 body {
     background: radial-gradient(black,gray,black,gray,black);
     overflow: hidden;
@@ -39,27 +43,19 @@ body {
     border: solid 2dvh;
 }
 
-.Outer {
-    text-align: center;
-    width: 95vw;
-}
-
 .Middle {
     color: black;
-    background-color: ghostwhite;
+    background-color: pink;
     height: calc(100vh - 190px);
     height: calc(100dvh - 190px);
     width: calc(100vw - 175px);
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
     place-items: center;
     border-radius: 15px;
     margin: auto;
 }
 
 .animate {
-    position: absolute;
+    position: relative;
     z-index: 10;
     top: 0;
     left: 50%;
@@ -77,21 +73,37 @@ body {
     height: 40dvw;
     max-height: 35rem;
     border-radius: 15px;
+    background-color: rgba(0,0,0,0);
+    position: absolute;
+
 }
 
-.backdrop {
+.background {
     width: 60dvw;
     height: 40dvw;
     max-height: 35rem;
     border-radius: 15px;
-    border: solid green 5px;
+    background-color: green;
+    position: absolute;
 }
 
+
+/* footer */
 a {
     text-decoration: none;
     font-style: italic;
     color: red;
-    
+    position: relative;
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    background-color: red;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    height: .10em;
 }
 
 a:hover {
@@ -101,10 +113,14 @@ a:hover {
     border-radius: 5px;
 }
 
+
+
 footer {
     text-align: center;
 }
 
+
+/* media */
 @media screen and (width < 800px) {
     canvas {
         width: 300px;
