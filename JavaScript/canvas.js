@@ -1,8 +1,22 @@
 let playerState = 'idle';
+let returnedValueFromKeydown
+let keyDownValue
+const arrayState = ['getHit', 'idle', 'jump', 'fall', 'run', 'dizzy', 'sit', 'roll', 'bite', 'ko']
 const dropdown = document.getElementById('animations');
-dropdown.addEventListener('change', function(e){
-    playerState = e.target.value;
-})
+
+document.onkeydown = function(e){
+    keyDownValue = e.key;
+    setPlayerState(keyDownValue);
+}
+
+function setPlayerState(keyDownValue){
+    if (!isNaN(keyDownValue)){
+        returnedValueFromKeydown = Number(keyDownValue);
+        playerState = arrayState[returnedValueFromKeydown];
+        console.log(playerState)
+    }
+}
+
 
 const canvas = document.getElementById('player');
 const ctx = canvas.getContext('2d');

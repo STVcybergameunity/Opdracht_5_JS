@@ -3,39 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Cs/design.css">
+    <link rel="stylesheet" href="Css/design.css">
     <link rel="shortcut icon" href="Img/favicon.ico">
     <title>TopDownShooter</title>
 </head>
 <body>
     <header>
         <h1>TopDownShooter</h1>
+        <button id="start" class="start"></button>
     </header>
 
-    <div class="Borders">
-        <div class="Middle"><canvas id="background"></canvas><canvas id="player"></canvas></div>
-        <div class="animate">
-            <label for="animations"></label>
-            <select id="animations" name="animations">
-                <option value="idle">Idle</option>
-                <option value="jump">Jump</option>
-                <option value="fall">Fall</option>
-                <option value="run">Run</option>
-                <option value="dizzy">Dizzy</option>
-                <option value="sit">Sit</option>
-                <option value="roll">Roll</option>
-                <option value="bite">Bite</option>
-                <option value="ko">KO</option>
-                <option value="getHit">Get hit</option>
-            </select>
-        </div>
-            
-        </div>
-    </div>
+    <main>
+        <canvas id="player" class="player"></canvas>
+    <main>
 
     <footer>
-        <a href="https://github.com/STVcybergameunity?tab=repositories" target="_blank">My github</a>
+        <a href="https://github.com/STVcybergameunity?tab=repositories" target="_blank">My github</a> &copy;2026
     </footer>
     <script src="JavaScript/canvas.js"></script>
+    <script src="JavaScript/startbutton.js"></script>
 </body>
 </html>

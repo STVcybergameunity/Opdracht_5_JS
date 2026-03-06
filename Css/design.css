@@ -27,44 +27,52 @@ h1::after {
     bottom: 0;
 }
 
+h1::before {
+    content: '';
+    position: absolute;
+    height: 125%;
+    width: 125%;
+    left: -17%;
+    bottom: -40%;
+    box-shadow: 100px;
+    border: double 10px transparent;
+    border-radius: 30px;
+    background-image: linear-gradient(white, white), linear-gradient(to right, black, gold);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    z-index: -1;
+}
+
 
 /* visials content */
 body {
-    background: radial-gradient(black,gray,black,gray,black);
+    background: linear-gradient(90deg,gray,black);
     overflow: hidden;
 }
 
-.Borders {
+main {
+    display: none;
     width: 5vw;
-    background-color: black;
     width: calc(100vw - 100px);
-    border-radius: 15px;
+    align-content: center;
+    justify-content: center;
     margin: auto;
-    border: solid 2dvh;
-}
-
-.Middle {
-    color: black;
-    background-color: pink;
-    height: calc(100vh - 190px);
-    height: calc(100dvh - 190px);
-    width: calc(100vw - 175px);
-    place-items: center;
-    border-radius: 15px;
-    margin: auto;
-}
-
-.animate {
     position: relative;
-    z-index: 10;
-    top: 0;
-    left: 50%;
-    transform: translatex(-50%);
-    margin-top: 8%;
-} 
+}
 
-.animate, select, option {
-    font-size: clamp(1.8rem, 4vw, 3rem);
+main::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: whitesmoke;
+    z-index: 1;
+    left: -1%;
+    border: double 1em transparent;
+    border-radius: 30px;
+    background-image: linear-gradient(white, white), linear-gradient(to right, black, gold);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
 }
 
 .player {
@@ -74,17 +82,7 @@ body {
     max-height: 35rem;
     border-radius: 15px;
     background-color: rgba(0,0,0,0);
-    position: absolute;
-
-}
-
-.background {
-    width: 60dvw;
-    height: 40dvw;
-    max-height: 35rem;
-    border-radius: 15px;
-    background-color: green;
-    position: absolute;
+    z-index: 10;
 }
 
 
@@ -133,15 +131,4 @@ footer {
         width: 300px;
         height: 300px;
     }
-    .animate {
-        margin-top: 30%;
-    }
 }
-
-@media screen and (height < 600px) {
-    .animate{
-        margin-top: 15%;
-        
-    }
-}
-    

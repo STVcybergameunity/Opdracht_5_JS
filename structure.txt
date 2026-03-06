@@ -1,0 +1,15 @@
+../Opdracht_5_JS
+├── Cs
+│   └── design.css
+├── Img
+│   ├── favicon.ico
+│   └── shadow_dog.png
+├── index.html
+├── JavaScript
+│   ├── animations.js
+│   ├── canvas.js
+│   └── startbutton.js
+├── README.md
+└── structure.txt
+
+4 directories, 9 files
