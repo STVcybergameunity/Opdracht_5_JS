@@ -15,6 +15,11 @@ function setPlayerState(keyDownValue){
         playerState = arrayState[returnedValueFromKeydown];
         console.log(playerState)
     }
+    else switch(keyDownValue) {
+        case 'w':
+            break;
+    }
+    
 }
 
 

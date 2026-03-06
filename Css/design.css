@@ -52,6 +52,7 @@ body {
 
 main {
     display: none;
+    top: 10dvh;
     width: 5vw;
     width: calc(100vw - 100px);
     align-content: center;
@@ -75,11 +76,41 @@ main::after {
     background-clip: content-box, border-box;
 }
 
+.start {
+    position: relative;
+    color: black;
+    top: 40dvh;
+    font-style: italic;
+    font-size: clamp(1rem, 10vw, 4rem);
+    background: linear-gradient(90deg, darkred, red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 20px;
+    border: none;
+}
+
+.start::after {
+    content: '';
+    position: absolute;
+    height: 125%;
+    width: 125%;
+    left: -17%;
+    bottom: -25%;
+    box-shadow: 100px;
+    border: double 10px transparent;
+    border-radius: 30px;
+    background-image: linear-gradient(white, white), linear-gradient(to right, black, gold);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    z-index: -1;
+}
+
 .player {
-    width: 40dvw;
-    max-width: 35rem;
-    height: 40dvw;
-    max-height: 35rem;
+    width: 50dvw;
+    max-width: 40rem;
+    height: 50dvw;
+    max-height: 40rem;
     border-radius: 15px;
     background-color: rgba(0,0,0,0);
     z-index: 10;
@@ -114,7 +145,29 @@ a:hover {
 
 
 footer {
+    position: absolute;
     text-align: center;
+    z-index: 1;
+    max-width: fit-content;
+    left: 50%;
+    bottom: 3%;
+    translate: -50%;
+}
+
+a::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -25%;
+    height: 125%;
+    width: 200%;
+    box-shadow: 100px;
+    border: double 10px transparent;
+    border-radius: 30px;
+    background-image: linear-gradient(white, white), linear-gradient(to right, black, gold);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    z-index: -1;
 }
 
 
