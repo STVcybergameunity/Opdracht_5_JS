@@ -1,11 +1,16 @@
 /* head and text */
+:root {
+    --radient_textcolor: linear-gradient(90deg, darkred, red);
+    --radient_textcolor_hover: linear-gradient(90deg, blue, darkblue);
+    --radient_background: linear-gradient(white, white), linear-gradient(to right, black, gold);
+}
 
 header {
     margin: auto ;
     text-align: center;
     font-style: italic;
     font-size: clamp(1rem, 3vw, 1.4rem);
-    background: linear-gradient(90deg, darkred, red);
+    background: var(--radient_textcolor);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -22,7 +27,7 @@ h1::after {
     position: absolute;
     height: .15em;
     width: 100%;
-    background: linear-gradient(90deg,red, darkred);
+    background: var(--radient_textcolor);
     left: 0;
     bottom: 0;
 }
@@ -37,7 +42,7 @@ h1::before {
     box-shadow: 100px;
     border: double 10px transparent;
     border-radius: 30px;
-    background-image: linear-gradient(white, white), linear-gradient(to right, black, gold);
+    background-image: var(--radient_background);
     background-origin: border-box;
     background-clip: content-box, border-box;
     z-index: -1;
@@ -71,42 +76,12 @@ main::after {
     left: -1%;
     border: double 1em transparent;
     border-radius: 30px;
-    background-image: linear-gradient(white, white), linear-gradient(to right, black, gold);
+    background-image: var(--radient_background);
     background-origin: border-box;
     background-clip: content-box, border-box;
 }
 
-.start {
-    position: relative;
-    color: black;
-    top: 40dvh;
-    font-style: italic;
-    font-size: clamp(1rem, 10vw, 4rem);
-    background: linear-gradient(90deg, darkred, red);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-shadow: 20px;
-    border: none;
-}
-
-.start::after {
-    content: '';
-    position: absolute;
-    height: 125%;
-    width: 125%;
-    left: -17%;
-    bottom: -25%;
-    box-shadow: 100px;
-    border: double 10px transparent;
-    border-radius: 30px;
-    background-image: linear-gradient(white, white), linear-gradient(to right, black, gold);
-    background-origin: border-box;
-    background-clip: content-box, border-box;
-    z-index: -1;
-}
-
-.player {
+#player {
     width: 50dvw;
     max-width: 40rem;
     height: 50dvw;
@@ -116,33 +91,45 @@ main::after {
     z-index: 10;
 }
 
-
-/* footer */
-a {
-    text-decoration: none;
-    font-style: italic;
-    color: red;
+#start {
     position: relative;
+    color: black;
+    top: 40dvh;
+    font-style: italic;
+    font-size: clamp(1rem, 10vw, 4rem);
+    background: var(--radient_textcolor);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 20px;
+    border: none;
 }
 
-a::after {
+#start::after {
     content: '';
     position: absolute;
-    background-color: red;
-    width: 100%;
-    left: 0;
-    bottom: 0;
-    height: .10em;
+    height: 125%;
+    width: 125%;
+    left: -17%;
+    bottom: -25%;
+    box-shadow: 100px;
+    border: double 10px transparent;
+    border-radius: 30px;
+    background-image: var(--radient_background);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    z-index: -1;
 }
 
-a:hover {
-    background-color: white;
-    border: 1px solid black;
-    text-decoration: underline;
-    border-radius: 5px;
+#start:hover {
+    background: var(--radient_textcolor_hover);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    cursor: pointer;
 }
 
-
+/* footer */
 
 footer {
     position: absolute;
@@ -152,6 +139,26 @@ footer {
     left: 50%;
     bottom: 3%;
     translate: -50%;
+}
+
+a {
+    text-decoration: none;
+    font-style: italic;
+    background: var(--radient_textcolor);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    background: var(--radient_textcolor);
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    height: .10em;
 }
 
 a::before {
@@ -170,16 +177,34 @@ a::before {
     z-index: -1;
 }
 
+a:hover {
+    background: var(--radient_textcolor_hover);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+a:hover::after {
+    content: '';
+    position: absolute;
+    background: var(--radient_textcolor_hover);
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    height: .10em;
+}
+
+
 
 /* media */
-@media screen and (width < 800px) {
+@media screen and (height < 1000px) {
     canvas {
         width: 300px;
         height: 300px;
     }
 }
 
-@media screen and (height < 1000px) {
+@media screen and (width < 800px) {
     canvas {
         width: 300px;
         height: 300px;
