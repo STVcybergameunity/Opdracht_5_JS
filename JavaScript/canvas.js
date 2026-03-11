@@ -2,7 +2,7 @@
  * Asigning let variables *
  **************************/
 
-let playerState = 'idle';
+let playerState = 'run';
 let returnedValueFromKeydown;
 let keyDownValue;
 let frameX = 0;
@@ -11,6 +11,8 @@ let gameFrame = 0;
 let errorValue = false;
 let timeKeyHeld;
 let keyUp;
+let startTimer;
+let endTimer;
 
 /****************************
  * Asigning const variables *
@@ -88,19 +90,25 @@ const _ANIMATIONSTATE = [
  * Sets the playerstate to the value that was pressed *
  ******************************************************/
 
-window.addEventListener('keyup', function(e){
+window.addEventListener('keydown', function(e){
+
+    startTimer = new Date();
 
     keyDownValue = e.key;
-
-    if (e.which === _SPACEKEY)
-
-
     
     setPlayerState(keyDownValue);
 
 });
 
+window.addEventListener('keyup', function(e){
+
+    endTimer = new Date();
+    timeKeyHeld = endTimer - startTimer;
+
+})
+
 try{
+
     function setPlayerState(keyDownValue){
 
         if (keyDownValue === undefined){
@@ -144,22 +152,25 @@ try{
 
         else {
             console.log('Please use W instead of space.')
+
         }
     }
+
 } catch (error){
-    console.error(error)
+
+    console.error(error);
+
 }
 
-// function jumpingAnimation(){
-//     document.onkeyup = function(e){
-//         keyUp = e.key;
-//         gameFrame = 0;
-//     }
+function jumpingAnimation(){
+    
+    gameFrame = 0;
 
-//     if ((gameFrame / 1000) === 1){
-        
-//     }
-// }
+    if ((gameFrame / timeKeyHeld) === 1){
+        console.log("hi")
+    }
+
+}
 
 _PLAYERIMAGE.src = 'Img/shadow_dog.png';
 

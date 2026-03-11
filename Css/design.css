@@ -70,12 +70,12 @@ body {
 main {
     display: none;
     top: 10dvh;
-    width: 5vw;
-    width: calc(100vw - 100px);
+    width: 50dvw;
     align-content: center;
     justify-content: center;
     margin: auto;
     position: relative;
+    height: 35dvw;
 }
 
 main::after {
@@ -94,10 +94,12 @@ main::after {
 }
 
 #player {
-    margin-top: 5%;
-    width: 50dvw;
+    position: absolute;
+    top: 52%;
+    margin-right: 30vw;
+    width: 15dvw;
     max-width: 40rem;
-    height: 50dvw;
+    height: 15dvw;
     max-height: 40rem;
     border-radius: 15px;
     background-color: rgba(0,0,0,0);
@@ -105,16 +107,21 @@ main::after {
 }
 
 #background {
-    width: 60dvw;
-    max-width: 50rem;
-    height: 60dvw;
-    max-height: 50rem;
+    position: absolute;
+    left: 50.5%;
+    top: 52.5%;
+    width: 48dvw;
+    height:  34dvw;
+    transform:  translate(-50%, -50%);
+    border: solid;
+    border-radius: 20px;
     z-index: 9;
 }
 
 #screen_group {
     position: relative;
     display: flex;
+    justify-content: center;
 }
 
 #start {

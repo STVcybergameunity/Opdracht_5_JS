@@ -21,11 +21,17 @@
 
     <main>
 
+        <div>
+            <p>gamespeed:<span id="gamespeed"></span></p>
+            <input type="range" min="0" max="20" value="5" class="slider" id="slider">
+        </div>
         <screen_group id="screen_group">
 
-            <canvas id="player"><canvas id="background"></canvas></canvas>
+            <canvas id="player"></canvas>
 
         </screen_group>
+
+        <canvas id="background"></canvas>
 
     </main>
 
