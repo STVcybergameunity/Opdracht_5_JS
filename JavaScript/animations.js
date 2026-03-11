@@ -1,3 +1,9 @@
+/*****************************************
+ * Allows you to input the location of   *
+ * the correct image of the sprite sheet *
+ *****************************************/
+
+
 function getSpriteLoc(amountOfLocs,pixel,row){
     let returnarr = [];
     for (let i = 0;i<=amountOfLocs;i++){
@@ -5,6 +11,10 @@ function getSpriteLoc(amountOfLocs,pixel,row){
     }
     return returnarr;
 }
+
+/*********************************************
+ * Set locations of the sprites and how long *
+ *********************************************/
 
 spriteAnimations = [
     "idle" = {

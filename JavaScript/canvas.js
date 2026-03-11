@@ -1,18 +1,36 @@
-/**
- * Asigning let variables
- */
+/**************************
+ * Asigning let variables *
+ **************************/
+
 let playerState = 'idle';
 let returnedValueFromKeydown;
 let keyDownValue;
 let frameX = 0;
 let frameY = 0;
 let gameFrame = 0;
+let errorValue = false;
+let timeKeyHeld;
+let keyUp;
 
-/**
- * Asigning const variables
- */
+/****************************
+ * Asigning const variables *
+ ****************************/
+
 const _STATEGETHIT = 0;
+const _STATEIDLE = 1;
 const _STATEJUMP = 2;
+const _STATEFALL = 3;
+const _STATERUN = 4
+const _STATEDIZZY = 5;
+const _STATESIT = 6;
+const _STATEROLL = 7;
+const _STATEBITE = 8;
+const _STATEKO = 9;
+
+/********************************************* 
+**********************************************/
+
+const _SPACEKEY = 32;
 const _SPRITEWIDTH = 575;
 const _SPRITEHEIGHT = 523;
 const _STAGGERFRAMES = 5;
@@ -66,33 +84,82 @@ const _ANIMATIONSTATE = [
     },
 ];
 
-/**
- * Sets the playerstate to the value that was pressed
- */
-document.onkeydown = function(e){
+/******************************************************
+ * Sets the playerstate to the value that was pressed *
+ ******************************************************/
+
+window.addEventListener('keyup', function(e){
 
     keyDownValue = e.key;
+
+    if (e.which === _SPACEKEY)
+
+
+    
     setPlayerState(keyDownValue);
 
-}
+});
 
-function setPlayerState(keyDownValue){
+try{
+    function setPlayerState(keyDownValue){
 
-    if (!isNaN(keyDownValue)){
+        if (keyDownValue === undefined){
+            errorValue = true;
+        }
 
-        playerState = _ARRAYSTATE[keyDownValue];
-        console.log(playerState)
+        if (!isNaN(keyDownValue)){
 
+            playerState = _ARRAYSTATE[keyDownValue];
+            console.log(playerState)
+
+        }
+
+        else if (!errorValue) switch(keyDownValue) {
+
+            case 'w':
+                playerState = _ARRAYSTATE[_STATEJUMP];
+                jumpingAnimation();
+                break;
+
+            case 'a':
+                playerState = _ARRAYSTATE[_STATESIT];
+                break;
+
+            case 'd':
+                playerState = _ARRAYSTATE[_STATERUN];
+                break
+
+            case 's':
+                playerState = _ARRAYSTATE[_STATEROLL];
+                break;
+
+            case 'spaceKey':
+                playerState = _ARRAYSTATE[_STATEJUMP];
+                break;
+
+            default:
+                playerState = _ARRAYSTATE[_STATEIDLE];
+                break;
+        } 
+
+        else {
+            console.log('Please use W instead of space.')
+        }
     }
-
-    else switch(keyDownValue) {
-
-        case 'w':
-            playerState = _ARRAYSTATE[_STATEJUMP]
-            break;
-
-    } 
+} catch (error){
+    console.error(error)
 }
+
+// function jumpingAnimation(){
+//     document.onkeyup = function(e){
+//         keyUp = e.key;
+//         gameFrame = 0;
+//     }
+
+//     if ((gameFrame / 1000) === 1){
+        
+//     }
+// }
 
 _PLAYERIMAGE.src = 'Img/shadow_dog.png';
 

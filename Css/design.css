@@ -1,9 +1,21 @@
-/* head and text */
 :root {
     --radient_textcolor: linear-gradient(90deg, darkred, red);
     --radient_textcolor_hover: linear-gradient(90deg, blue, darkblue);
     --radient_background: linear-gradient(white, white), linear-gradient(to right, black, gold);
 }
+
+/* 
+    The text-colors should be placed in background with:
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    When underline is colored use textcolor on background.
+
+    Same rules apply for hover colors.
+*/
+
+/* head and text */
 
 header {
     margin: auto ;
@@ -82,6 +94,7 @@ main::after {
 }
 
 #player {
+    margin-top: 5%;
     width: 50dvw;
     max-width: 40rem;
     height: 50dvw;
@@ -89,6 +102,19 @@ main::after {
     border-radius: 15px;
     background-color: rgba(0,0,0,0);
     z-index: 10;
+}
+
+#background {
+    width: 60dvw;
+    max-width: 50rem;
+    height: 60dvw;
+    max-height: 50rem;
+    z-index: 9;
+}
+
+#screen_group {
+    position: relative;
+    display: flex;
 }
 
 #start {

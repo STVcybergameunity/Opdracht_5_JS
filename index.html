@@ -1,26 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="Css/design.css">
     <link rel="shortcut icon" href="Img/favicon.ico">
+
     <title>game</title>
+
 </head>
+
 <body>
+
     <header>
         <h1>Game</h1>
         <button id="start">Start Game</button>
     </header>
 
     <main>
-        <canvas id="player"></canvas>
+
+        <screen_group id="screen_group">
+
+            <canvas id="player"><canvas id="background"></canvas></canvas>
+
+        </screen_group>
+
     </main>
 
     <footer>
+
         <a href="https://github.com/STVcybergameunity?tab=repositories" target="_blank">My github</a> &copy;2026
+        
     </footer>
+
     <script src="JavaScript/canvas.js"></script>
     <script src="JavaScript/startbutton.js"></script>
+    <script src="JavaScript/background.js"></script>
+
 </body>
 </html>
