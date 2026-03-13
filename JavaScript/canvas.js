@@ -1,3 +1,20 @@
+function loadScript(url)
+{
+
+    let head = document.getElementsByTagName('head')[0];
+    let script = document.createElement('script');
+
+    script.type = 'text/javascript';
+    script.src = url;
+    
+    head.appendChild(script);
+}
+
+loadScript('JavaScript/background.js');
+loadScript('JavaScript/animations.js');
+loadScript('JavaScript/enemy.js');
+loadScript('JavaScript/startbutton.js');
+
 /**************************
  * Asigning let variables *
  **************************/
@@ -5,9 +22,9 @@
 let playerState = 'run';
 let returnedValueFromKeydown;
 let keyDownValue;
+let gameFrame = 0;
 let frameX = 0;
 let frameY = 0;
-let gameFrame = 0;
 let errorValue = false;
 let timeKeyHeld;
 let keyUp;
@@ -107,67 +124,63 @@ window.addEventListener('keyup', function(e){
 
 })
 
-try{
+function setPlayerState(keyDownValue){
 
-    function setPlayerState(keyDownValue){
+    if (keyDownValue === undefined){
 
-        if (keyDownValue === undefined){
-            errorValue = true;
-        }
+        errorValue = true;
 
-        if (!isNaN(keyDownValue)){
-
-            playerState = _ARRAYSTATE[keyDownValue];
-            console.log(playerState)
-
-        }
-
-        else if (!errorValue) switch(keyDownValue) {
-
-            case 'w':
-                playerState = _ARRAYSTATE[_STATEJUMP];
-                jumpingAnimation();
-                break;
-
-            case 'a':
-                playerState = _ARRAYSTATE[_STATESIT];
-                break;
-
-            case 'd':
-                playerState = _ARRAYSTATE[_STATERUN];
-                break
-
-            case 's':
-                playerState = _ARRAYSTATE[_STATEROLL];
-                break;
-
-            case 'spaceKey':
-                playerState = _ARRAYSTATE[_STATEJUMP];
-                break;
-
-            default:
-                playerState = _ARRAYSTATE[_STATEIDLE];
-                break;
-        } 
-
-        else {
-            console.log('Please use W instead of space.')
-
-        }
     }
 
-} catch (error){
+    if (!isNaN(keyDownValue)){
 
-    console.error(error);
+        playerState = _ARRAYSTATE[keyDownValue];
+        console.log(playerState)
 
+    }
+
+    else if (!errorValue) switch(keyDownValue) {
+
+        case 'w':
+            playerState = _ARRAYSTATE[_STATEJUMP];
+            jumpingAnimation();
+            break;
+
+        case 'a':
+            playerState = _ARRAYSTATE[_STATESIT];
+            break;
+
+        case 'd':
+            playerState = _ARRAYSTATE[_STATERUN];
+            break
+
+        case 's':
+            playerState = _ARRAYSTATE[_STATEROLL];
+            break;
+
+        case 'spaceKey':
+            playerState = _ARRAYSTATE[_STATEJUMP];
+            break;
+
+        default:
+            break;
+    } 
+
+    else {
+        console.log('Please use W instead of space.')
+
+    }
 }
+
 
 function jumpingAnimation(){
     
     gameFrame = 0;
 
     if ((gameFrame / timeKeyHeld) === 1){
-        console.log("hi")
+
+        console.log("hi");
+
     }
 
 }
@@ -181,12 +194,16 @@ _ANIMATIONSTATE.forEach((state, index) => {
     }
 
     for (let j = 0; j < state.frames; j++){
+
         let positionX = j * _SPRITEWIDTH;
         let positionY = index * _SPRITEHEIGHT;
+
         frames.loc.push({x: positionX, y: positionY});
+
     }
 
     _SPRITEANIMATION[state.name] = frames;
+
 });
 
 
@@ -201,7 +218,8 @@ function animate(){
     _CTX.drawImage(_PLAYERIMAGE, frameX, frameY,
     _SPRITEWIDTH, _SPRITEHEIGHT, 0, 0, _SPRITEWIDTH, _SPRITEHEIGHT);
 
-    gameFrame ++
+    gameFrame++;
     requestAnimationFrame(animate);
+    
 }
 animate();

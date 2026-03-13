@@ -1,7 +1,9 @@
 :root {
+
     --radient_textcolor: linear-gradient(90deg, darkred, red);
     --radient_textcolor_hover: linear-gradient(90deg, blue, darkblue);
     --radient_background: linear-gradient(white, white), linear-gradient(to right, black, gold);
+    
 }
 
 /* 
@@ -116,6 +118,16 @@ main::after {
     border: solid;
     border-radius: 20px;
     z-index: 9;
+}
+
+#enemy {
+    position: absolute;
+    left: 50.5%;
+    top: 52.5%;
+    width: 48dvw;
+    height: 34dvw;
+    transform: translate(-50%, -50%);
+    z-index: 11;
 }
 
 #screen_group {
