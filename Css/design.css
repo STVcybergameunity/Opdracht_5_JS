@@ -33,7 +33,9 @@ header {
 }
 
 h1 {
+
     position: relative;
+    
 }
 
 h1::after {
@@ -137,6 +139,7 @@ main::after {
 }
 
 #start {
+
     position: relative;
     color: black;
     top: 40dvh;
@@ -148,6 +151,7 @@ main::after {
     background-clip: text;
     text-shadow: 20px;
     border: none;
+    
 }
 
 #start::after {
@@ -173,6 +177,102 @@ main::after {
     background-clip: text;
     cursor: pointer;
 }
+
+#speed_slow, #speed_medium, #speed_fast {
+
+    position: absolute;
+    visibility: hidden;
+    color: black;
+    font-style: italic;
+    font-size: clamp(1rem, 10vw, 4rem);
+    background: var(--radient_textcolor);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 20px;
+    border: none;
+
+}
+
+#speed_slow {
+
+    left: 12.5%;
+
+}
+
+#speed_medium {
+
+    left: 44.5%;
+
+}
+
+#speed_fast {
+
+    right: 12.5%;
+
+}
+
+#speed_slow::after {
+
+    content: '';
+    position: absolute;
+    height: 90%;
+    width: 110%;
+    left: -13%;
+    box-shadow: 100px;
+    border: double 10px transparent;
+    border-radius: 30px;
+    background-image: var(--radient_background);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    z-index: -1;
+
+}
+
+#speed_medium::after {
+
+    content: '';
+    position: absolute;
+    height: 90%;
+    width: 110%;
+    left: -13%;
+    box-shadow: 100px;
+    border: double 10px transparent;
+    border-radius: 30px;
+    background-image: var(--radient_background);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    z-index: -1;
+
+}
+
+#speed_fast::after {
+
+    content: '';
+    position: absolute;
+    height: 90%;
+    width: 110%;
+    left: -13%;
+    box-shadow: 100px;
+    border: double 10px transparent;
+    border-radius: 30px;
+    background-image: var(--radient_background);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    z-index: -1;
+
+}
+
+#speed_slow:hover, #speed_medium:hover, #speed_fast:hover {
+
+    background: var(--radient_textcolor_hover);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    cursor: pointer;
+
+}
+
 
 /* footer */
 
