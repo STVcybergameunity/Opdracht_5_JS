@@ -2,5 +2,37 @@
  * Set the variables *
  *********************/
 
-let rect1 = {x: 5, y:5, width: 50, height:50};
-let rect2 = {x: 20, y: 10, width: 10, height: 10};
+const circle1 = {x: 10, y:10, radius:300};
+const circle2 = {x: 500, y: 500, radius: 150};
+
+let horizontalDiffrence = circle2.x - circle1.x;
+let verticalDiffrence = circle2.y - circle1.y;
+let distanceBetween = Math.sqrt(
+
+    horizontalDiffrence * horizontalDiffrence
+    + verticalDiffrence * verticalDiffrence
+
+);
+let sumOfRadius = circle1.radius + circle2.radius;
+
+if (distanceBetween < sumOfRadius){
+
+    /***************
+     * If collided *
+     ***************/
+
+} else if (distanceBetween === sumOfRadius){
+
+    /***************
+     * If touching *
+     ***************/
+
+
+} else if (distanceBetween > sumOfRadius){
+
+    /****************
+     * No collision *
+     ****************/
+
+
+}

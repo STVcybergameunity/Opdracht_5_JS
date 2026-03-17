@@ -13,7 +13,6 @@ function loadScript(url)
 loadScript('JavaScript/background.js');
 loadScript('JavaScript/animations.js');
 loadScript('JavaScript/enemy.js');
-loadScript('JavaScript/gamespeed.js');
 
 /**************************
  * Asigning let variables *
