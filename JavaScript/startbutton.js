@@ -14,8 +14,10 @@ function startButton(){
     
 
     if (element_borders){
+
         element_borders.style.display = "flex";
         element_button.style.display = 'none';
+        
     }
 
     if (element_speed_button_fast, element_speed_button_medium, element_speed_button_slow){
