@@ -3,36 +3,39 @@
  *********************/
 
 const circle1 = {x: 10, y:10, radius:300};
-const circle2 = {x: 500, y: 500, radius: 150};
 
-let horizontalDiffrence = circle2.x - circle1.x;
-let verticalDiffrence = circle2.y - circle1.y;
-let distanceBetween = Math.sqrt(
+function checkHitDetection() {
+    if (_ARRAY_OF_ENEMIES.length === 0) return;
+    
+    const circle2 = {x: _ARRAY_OF_ENEMIES[0].sizeEnemy()[0], y: _ARRAY_OF_ENEMIES[0].sizeEnemy()[1], radius: Explosion.explosionSize[0]/2};
 
-    horizontalDiffrence * horizontalDiffrence
-    + verticalDiffrence * verticalDiffrence
+    let horizontalDiffrence = circle2.x - circle1.x;
+    let verticalDiffrence = circle2.y - circle1.y;
+    let sumOfRadius = circle1.radius + circle2.radius;
+    let distanceBetween = Math.sqrt(
 
-);
-let sumOfRadius = circle1.radius + circle2.radius;
+        horizontalDiffrence * horizontalDiffrence
+        + verticalDiffrence * verticalDiffrence
 
-if (distanceBetween < sumOfRadius){
-
-    /***************
-     * If collided *
-     ***************/
-
-} else if (distanceBetween === sumOfRadius){
-
-    /***************
-     * If touching *
-     ***************/
+    );
 
 
-} else if (distanceBetween > sumOfRadius){
+    if (distanceBetween < sumOfRadius){
 
-    /****************
-     * No collision *
-     ****************/
+        _CTX_ENEMY.fillStyle = 'white';
+        _CTX_ENEMY.fillRect(circle2.x, circle2.y);
 
+    } else if (distanceBetween === sumOfRadius){
 
+        /***************
+         * If touching *
+         ***************/
+
+    } else if (distanceBetween > sumOfRadius){
+
+        /****************
+         * No collision *
+         ****************/
+
+    }
 }
