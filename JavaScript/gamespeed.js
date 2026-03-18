@@ -24,6 +24,7 @@ function hideElements(){
 
 }
 
+next
 function speedClick(event){
 
     switch(event.target.innerText) {

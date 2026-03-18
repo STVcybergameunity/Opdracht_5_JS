@@ -8,9 +8,6 @@ const element_speed_button_slow = document.querySelector("#speed_slow");
 const element_speed_button_medium = document.querySelector("#speed_medium");
 const element_speed_button_fast = document.querySelector("#speed_fast");
 
-
-element_button.addEventListener('click', startClick);
-
 function startClick(){
 
     if (element_borders){
