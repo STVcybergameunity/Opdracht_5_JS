@@ -3,6 +3,7 @@ const _ENEMY_CANVAS = document.querySelector('#enemy');
 const _CTX_ENEMY = _ENEMY_CANVAS.getContext('2d');
 
 const _ARRAY_OF_ENEMIES = [];
+const _ARRAY_OF_EXPLOSIONS =[];
 const _ENEMY_IMAGE = new Image();
 const _ENEMY_WIDTH = 266;
 const _ENEMY_HEIGHT = 188;
@@ -74,15 +75,22 @@ class Enemy {
 
     }
 
-    sizeEnemy() {
+    sizeEnemyX() {
 
-        return [this.x, this.y];
+        return this.x;
+
+    }
+
+    sizeEnemyY() {
+
+        return this.y;
 
     }
 
 }
 
 class Explosion {
+
     constructor(x, y){
 
         this.x = x;
@@ -115,11 +123,22 @@ class Explosion {
 
     }
 
-    get sizeExplosion(){
+    sizeExplosion(){
 
-        return [this.x, this.y];
+        return this.x;
 
     }
+
+}
+
+function spawnExplosions(){
+
+    for (let i = 0; i < numberOfEnemies; i++){
+
+        _ARRAY_OF_EXPLOSIONS.push(new Explosion())
+
+    }
+
 }
 
 function animate_Enemy(){

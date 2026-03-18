@@ -8,4 +8,4 @@ Node ver = v24.14.0
 git clone https://github.com/STVcybergameunity/Opdracht_5_JS.git
 ```
 
-
+Copy this code  into the terminal in the directury you want it in.
