@@ -8,7 +8,10 @@ const element_speed_button_slow = document.querySelector("#speed_slow");
 const element_speed_button_medium = document.querySelector("#speed_medium");
 const element_speed_button_fast = document.querySelector("#speed_fast");
 
-function startClick(){
+element_button.addEventListener('click', startButton)
+
+function startButton(){
+    
 
     if (element_borders){
         element_borders.style.display = "flex";
