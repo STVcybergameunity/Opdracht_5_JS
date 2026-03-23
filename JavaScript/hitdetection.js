@@ -1,50 +1,71 @@
 /*********************
  * Set the variables *
  *********************/
+let enemyHitbox = [];
+let horizontalDiffrence = [];
+let verticalDiffrence = [];
+let playerHitbox = {};
+let distanceBetween = [];
+let sumOfRadius = [];
+let i = 0
 
-const circle1 = {x: 10, y:10, radius:300};
+
+/************
+ * dank Ids *
+ ************/
+
+function initializeHitbox() {
+
+    playerHitbox = {x: _SPRITEWIDTH, y: _SPRITEHEIGHT, radius: _SPRITEWIDTH/2}
+
+    for (i = 0; i < _ARRAY_OF_ENEMIES.length; i++) {
+    
+        enemyHitbox.push({x: _ARRAY_OF_ENEMIES[i].sizeEnemyX(), y: _ARRAY_OF_ENEMIES[i].sizeEnemyY(), radius: _ARRAY_OF_ENEMIES[0].sizeEnemyY()/2});
+        horizontalDiffrence[i] = Math.floor(enemyHitbox[i].x - playerHitbox.x);
+        verticalDiffrence[i] = Math.floor(enemyHitbox[i].y - playerHitbox.y);
+
+        /**
+         * zet alles met [i] hier
+         */
+
+    }
+
+}
+
+ console.log(i)
 
 function checkHitDetection() {
 
-    for (let i = 0; i < _ARRAY_OF_ENEMIES.length; i++) {
+    distanceBetween[i] = Math.sqrt(
+
+    horizontalDiffrence[i] * horizontalDiffrence[i] +
+    verticalDiffrence[i] * verticalDiffrence[i]
     
-    let enemyHitbox = {x: _ARRAY_OF_ENEMIES[i].sizeEnemyX(), y: _ARRAY_OF_ENEMIES[i].sizeEnemyY(), radius: _ARRAY_OF_EXPLOSIONS[0].sizeExplosion()/2};
-
-    return enemyHitbox;
-
-    }
-
-    for (let i = 0; i < _SPRITEWIDTH){
-
-    }
-
-    let horizontalDiffrence = enemyHitbox.x - circle1.x;
-    let verticalDiffrence = enemyHitbox.y - circle1.y;
-    let sumOfRadius = circle1.radius + enemyHitbox.radius;
-    let distanceBetween = Math.sqrt(
-
-        horizontalDiffrence * horizontalDiffrence
-        + verticalDiffrence * verticalDiffrence
-
     )
 
+    sumOfRadius[i] = playerHitbox.radius + enemyHitbox[0].radius;
 
-    if (distanceBetween < sumOfRadius){
+    if (distanceBetween[i] < sumOfRadius){
 
+        console.log("hi")
         _CTX_ENEMY.fillStyle = 'white';
-        _CTX_ENEMY.fillRect(enemyHitbox.x, enemyHitbox.y);
+        _CTX_ENEMY.fillRect(enemyHitbox[i].x, enemyHitbox[i].y);
 
-    } else if (distanceBetween === sumOfRadius){
+    } else if (distanceBetween[i] === sumOfRadius){
 
-        /***************
-         * If touching *
-         ***************/
+        console.log("hi")
+        _CTX_ENEMY.fillStyle = 'white';
+        _CTX_ENEMY.fillRect(enemyHitbox[i].x, enemyHitbox[i].y);
 
-    } else if (distanceBetween > sumOfRadius){
+    } else if (distanceBetween[i] > sumOfRadius){
 
-        /****************
-         * No collision *
-         ****************/
+        if (gameFrame % 50 === 0){
+
+            console.log("No hit")
+
+        }
 
     }
+    
 }
+

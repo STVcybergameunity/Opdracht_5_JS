@@ -29,6 +29,7 @@ let timeKeyHeld;
 let keyUp;
 let startTimer;
 let endTimer;
+let gameStarted = false;
 
 /****************************
  * Asigning const variables *
@@ -205,7 +206,6 @@ _ANIMATIONSTATE.forEach((state, index) => {
 
 });
 
-
 function animate(){
 
     _CTX.clearRect(0, 0, _CANVAS_WIDTH, _CANVAS_HEIGHT);
@@ -218,6 +218,9 @@ function animate(){
     _SPRITEWIDTH, _SPRITEHEIGHT, 0, 0, _SPRITEWIDTH, _SPRITEHEIGHT);
 
     gameFrame++;
+
+    checkHitDetection();    
+
     requestAnimationFrame(animate);
     
 }

@@ -34,6 +34,8 @@ function speedClick(event){
             curveAmount = 8;
             numberOfEnemies = 10;
             amountOfEnemies();
+            gameStarted = true;
+            initializeHitbox();
 
             break;
 
@@ -43,6 +45,8 @@ function speedClick(event){
             curveAmount = 12;
             numberOfEnemies = 10;
             amountOfEnemies();
+            gameStarted = true;
+            initializeHitbox();
 
             break;
 
@@ -53,6 +57,8 @@ function speedClick(event){
             curveAmount = 4;
             numberOfEnemies = 5;
             amountOfEnemies();
+            gameStarted = true;
+            initializeHitbox();
 
             break;
 
