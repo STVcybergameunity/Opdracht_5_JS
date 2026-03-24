@@ -12,7 +12,6 @@ element_button.addEventListener('click', startButton)
 
 function startButton(){
     
-
     if (element_borders){
 
         element_borders.style.display = "flex";
