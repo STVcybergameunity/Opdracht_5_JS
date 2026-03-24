@@ -50,17 +50,18 @@ const _STATEKO = 9;
 **********************************************/
 
 const _SPACEKEY = 32;
-const _SPRITEWIDTH = 575;
-const _SPRITEHEIGHT = 523;
+const _SPRITE_WIDTH = 575;
+const _SPRITE_HEIGHT = 523;
 const _STAGGERFRAMES = 5;
 const _CANVAS = document.querySelector('#player');
 const _CTX = _CANVAS.getContext('2d');
 const _CANVAS_WIDTH = _CANVAS.width = 600;
 const _CANVAS_HEIGHT = _CANVAS.height = 600;
+const _CANVAS_POSITION = _CANVAS.getBoundingClientRect();
 const _PLAYERIMAGE = new Image()
-const _ARRAYSTATE = ['getHit', 'idle', 'jump', 'fall', 'run', 'dizzy', 'sit', 'roll', 'bite', 'ko'];
-const _SPRITEANIMATION = [];
-const _ANIMATIONSTATE = [
+const _ARRAY_STATE = ['getHit', 'idle', 'jump', 'fall', 'run', 'dizzy', 'sit', 'roll', 'bite', 'ko'];
+const _SPRITE_ANIMATION = [];
+const _ANIMATION_STATE = [
     {
         name: 'idle',
         frames: 7,
@@ -107,87 +108,39 @@ const _ANIMATIONSTATE = [
  * Sets the playerstate to the value that was pressed *
  ******************************************************/
 
-window.addEventListener('keydown', function(e){
-
-    startTimer = new Date();
-
-    keyDownValue = e.key;
-    
-    setPlayerState(keyDownValue);
-
-});
-
-window.addEventListener('keyup', function(e){
-
-    endTimer = new Date();
-    timeKeyHeld = endTimer - startTimer;
-
-})
-
 function setPlayerState(keyDownValue){
 
-    if (keyDownValue === undefined){
-
-        errorValue = true;
-
-    }
-
-    if (!isNaN(keyDownValue)){
-
-        playerState = _ARRAYSTATE[keyDownValue];
-        console.log(playerState)
-
-    }
-
-    else if (!errorValue) switch(keyDownValue) {
+    switch(keyDownValue) {
 
         case 'w':
-            playerState = _ARRAYSTATE[_STATEJUMP];
-            jumpingAnimation();
+            playerState = _ARRAY_STATE[_STATEJUMP];
             break;
 
         case 'a':
-            playerState = _ARRAYSTATE[_STATESIT];
+            playerState = _ARRAY_STATE[_STATESIT];
             break;
 
         case 'd':
-            playerState = _ARRAYSTATE[_STATERUN];
+            playerState = _ARRAY_STATE[_STATERUN];
             break
 
         case 's':
-            playerState = _ARRAYSTATE[_STATEROLL];
+            playerState = _ARRAY_STATE[_STATEROLL];
             break;
 
         case 'spaceKey':
-            playerState = _ARRAYSTATE[_STATEJUMP];
+            playerState = _ARRAY_STATE[_STATEJUMP];
             break;
 
         default:
             break;
     } 
 
-    else {
-        console.log('Please use W instead of space.')
-
-    }
-}
-
-
-function jumpingAnimation(){
-    
-    gameFrame = 0;
-
-    if ((gameFrame / timeKeyHeld) === 1){
-
-        console.log("hi");
-
-    }
-
 }
 
 _PLAYERIMAGE.src = 'Img/shadow_dog.png';
 
-_ANIMATIONSTATE.forEach((state, index) => {
+_ANIMATION_STATE.forEach((state, index) => {
 
     let frames = {
         loc: [],
@@ -195,14 +148,14 @@ _ANIMATIONSTATE.forEach((state, index) => {
 
     for (let j = 0; j < state.frames; j++){
 
-        let positionX = j * _SPRITEWIDTH;
-        let positionY = index * _SPRITEHEIGHT;
+        let positionX = j * _SPRITE_WIDTH;
+        let positionY = index * _SPRITE_HEIGHT;
 
         frames.loc.push({x: positionX, y: positionY});
 
     }
 
-    _SPRITEANIMATION[state.name] = frames;
+    _SPRITE_ANIMATION[state.name] = frames;
 
 });
 
@@ -210,18 +163,19 @@ function animate(){
 
     _CTX.clearRect(0, 0, _CANVAS_WIDTH, _CANVAS_HEIGHT);
 
-    let position = Math.floor(gameFrame/_STAGGERFRAMES) % _SPRITEANIMATION[playerState].loc.length;
-    let frameX = _SPRITEWIDTH * position;
-    let frameY = _SPRITEANIMATION[playerState].loc[position].y;
+    let position = Math.floor(gameFrame/_STAGGERFRAMES) % _SPRITE_ANIMATION[playerState].loc.length;
+    let frameX = _SPRITE_WIDTH * position;
+    let frameY = _SPRITE_ANIMATION[playerState].loc[position].y;
 
     _CTX.drawImage(_PLAYERIMAGE, frameX, frameY,
-    _SPRITEWIDTH, _SPRITEHEIGHT, 0, 0, _SPRITEWIDTH, _SPRITEHEIGHT);
+    _SPRITE_WIDTH, _SPRITE_HEIGHT, 0, 0, _SPRITE_WIDTH, _SPRITE_HEIGHT);
 
-    gameFrame++;
+    checkHitDetection();
 
-    checkHitDetection();    
+    gameFrame++;    
 
     requestAnimationFrame(animate);
     
 }
+
 animate();

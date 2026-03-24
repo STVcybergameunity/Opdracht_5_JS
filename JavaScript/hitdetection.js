@@ -7,7 +7,7 @@ let verticalDiffrence = [];
 let playerHitbox = {};
 let distanceBetween = [];
 let sumOfRadius = [];
-let i = 0
+
 
 
 /************
@@ -16,56 +16,50 @@ let i = 0
 
 function initializeHitbox() {
 
-    playerHitbox = {x: _SPRITEWIDTH, y: _SPRITEHEIGHT, radius: _SPRITEWIDTH/2}
+    playerHitbox = {x: _SPRITE_WIDTH, y: _SPRITE_HEIGHT, radius: _SPRITE_WIDTH/2}
 
-    for (i = 0; i < _ARRAY_OF_ENEMIES.length; i++) {
+    for (let i = 0; i < _ARRAY_OF_ENEMIES.length; i++) {
     
-        enemyHitbox.push({x: _ARRAY_OF_ENEMIES[i].sizeEnemyX(), y: _ARRAY_OF_ENEMIES[i].sizeEnemyY(), radius: _ARRAY_OF_ENEMIES[0].sizeEnemyY()/2});
-        horizontalDiffrence[i] = Math.floor(enemyHitbox[i].x - playerHitbox.x);
-        verticalDiffrence[i] = Math.floor(enemyHitbox[i].y - playerHitbox.y);
-
-        /**
-         * zet alles met [i] hier
-         */
+        enemyHitbox.push({x: _ARRAY_OF_ENEMIES[i].locationEnemyX(), y: _ARRAY_OF_ENEMIES[i].locationEnemyY(), radius: _ENEMY_WIDTH/2});
 
     }
 
 }
 
- console.log(i)
-
 function checkHitDetection() {
 
-    distanceBetween[i] = Math.sqrt(
+    for(let i = 0; i < enemyHitbox.length; i++) {
 
-    horizontalDiffrence[i] * horizontalDiffrence[i] +
-    verticalDiffrence[i] * verticalDiffrence[i]
-    
-    )
+        enemyHitbox[i] = {x: _ARRAY_OF_ENEMIES[i].locationEnemyX(), y: _ARRAY_OF_ENEMIES[i].locationEnemyY(), radius: _ENEMY_WIDTH/2}
 
-    sumOfRadius[i] = playerHitbox.radius + enemyHitbox[0].radius;
+        enemyHitbox[i].x = _ARRAY_OF_ENEMIES[i].locationEnemyX();
+        enemyHitbox[i].y = _ARRAY_OF_ENEMIES[i].locationEnemyY();
 
-    if (distanceBetween[i] < sumOfRadius){
+        horizontalDiffrence[i] = Math.floor(enemyHitbox[i].x - playerHitbox.x);
+        verticalDiffrence[i] = Math.floor(enemyHitbox[i].y - playerHitbox.y);
 
-        console.log("hi")
-        _CTX_ENEMY.fillStyle = 'white';
-        _CTX_ENEMY.fillRect(enemyHitbox[i].x, enemyHitbox[i].y);
+        distanceBetween[i] = Math.sqrt(
 
-    } else if (distanceBetween[i] === sumOfRadius){
+        horizontalDiffrence[i] * horizontalDiffrence[i] +
+        verticalDiffrence[i] * verticalDiffrence[i]
+        
+        )
 
-        console.log("hi")
-        _CTX_ENEMY.fillStyle = 'white';
-        _CTX_ENEMY.fillRect(enemyHitbox[i].x, enemyHitbox[i].y);
+        sumOfRadius[i] = playerHitbox.radius + enemyHitbox[i].radius;
 
-    } else if (distanceBetween[i] > sumOfRadius){
+        if (distanceBetween[i] < sumOfRadius[i]){
 
-        if (gameFrame % 50 === 0){
+            playerState = _ARRAY_STATE[_STATEGETHIT];
 
-            console.log("No hit")
+        } 
+        
+        if (distanceBetween[i] === sumOfRadius[i]){
 
-        }
+            playerState = _ARRAY_STATE[_STATEGETHIT];
+
+        } 
 
     }
-    
+ 
 }
 

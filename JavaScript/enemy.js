@@ -25,7 +25,7 @@ class Enemy {
         this.width = _ENEMY_WIDTH / 4;
         this.height = _ENEMY_HEIGHT / 1.5;
 
-        this.x = -_ENEMY_WIDTH;
+        this.x = _CANVAS_WIDTH;
         this.y = Math.random() * (_ENEMY_CANVAS.height - _ENEMY_HEIGHT);
 
         this.frame = 0;
@@ -75,13 +75,13 @@ class Enemy {
 
     }
 
-    sizeEnemyX() {
+    locationEnemyX() {
 
         return this.x;
 
     }
 
-    sizeEnemyY() {
+    locationEnemyY() {
 
         return this.y;
 
