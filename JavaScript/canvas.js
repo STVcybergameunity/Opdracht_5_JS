@@ -27,8 +27,6 @@ let frameY = 0;
 let errorValue = false;
 let timeKeyHeld;
 let keyUp;
-let startTimer;
-let endTimer;
 let gameStarted = false;
 
 /****************************
@@ -49,7 +47,6 @@ const _STATEKO = 9;
 /********************************************* 
 **********************************************/
 
-const _SPACEKEY = 32;
 const _SPRITE_WIDTH = 575;
 const _SPRITE_HEIGHT = 523;
 const _STAGGERFRAMES = 5;
@@ -108,6 +105,14 @@ const _ANIMATION_STATE = [
  * Sets the playerstate to the value that was pressed *
  ******************************************************/
 
+window.addEventListener('keydown', function(e){
+
+    keyDownValue = e.key;
+
+    setPlayerState(keyDownValue);
+
+});
+
 function setPlayerState(keyDownValue){
 
     switch(keyDownValue) {
@@ -128,7 +133,7 @@ function setPlayerState(keyDownValue){
             playerState = _ARRAY_STATE[_STATEROLL];
             break;
 
-        case 'spaceKey':
+        case ' ':
             playerState = _ARRAY_STATE[_STATEJUMP];
             break;
 

@@ -1,15 +1,13 @@
 /*********************
  * Set the variables *
  *********************/
+
 let enemyHitbox = [];
 let horizontalDiffrence = [];
 let verticalDiffrence = [];
 let playerHitbox = {};
 let distanceBetween = [];
 let sumOfRadius = [];
-let hitTimer = 0
-
-
 
 /************
  * dank Ids *
